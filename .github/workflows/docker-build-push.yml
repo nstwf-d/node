@@ -9,9 +9,15 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+
 jobs:
   build-push:
     if: github.event_name != 'pull_request'
+
+    permissions:
+      contents: read
 
     strategy:
       matrix:
@@ -32,6 +38,10 @@ jobs:
 
   build-push-pr:
     if: github.event_name == 'pull_request'
+
+    permissions:
+      contents: read
+      pull-requests: write
 
     strategy:
       matrix:
