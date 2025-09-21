@@ -4,6 +4,8 @@ FROM node:${NODE_VERSION}-alpine
 
 ARG DEBIAN_FRONTEND=noninteractive
 
+LABEL org.opencontainers.image.source="https://github.com/nstwf-d/node"
+
 RUN apk update --no-cache \
     && apk add --no-cache \
            bash zip unzip git curl wget
